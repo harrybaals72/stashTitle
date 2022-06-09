@@ -39,3 +39,15 @@ func sendCmd(ip string, cmd string) []string {
 
 	return strings.Split(b.String(), "\n")
 }
+
+func stopContainer(ip string, stashInst string) {
+	fmt.Println("Stopping container...")
+	resp := sendCmd(ip, "docker stop "+stashInst)
+	fmt.Println(resp)
+}
+
+func startContainer(ip string, stashInst string) {
+	fmt.Println("Starting container...")
+	resp := sendCmd(ip, "docker start "+stashInst)
+	fmt.Println(resp)
+}
